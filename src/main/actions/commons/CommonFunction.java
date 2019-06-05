@@ -26,9 +26,7 @@ public class CommonFunction extends BasicPage {
 		super(driver);
 	}
 
-	private long timeouts;
-
-	// private int timeouts = 20;
+	private int timeouts = 60;
 	public void clickRandomCombobox(String locator) {
 		List<WebElement> selects = driver.findElements(By.xpath(locator));
 		Random rand = new Random();

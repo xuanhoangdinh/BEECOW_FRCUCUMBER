@@ -4,9 +4,11 @@ Feature: Login page
   I want to login with account
   So that I want to verify all fields is correct message
 
+  Background: User to navigate to Login page
+    Given I navigate to Beecow and click button Login
+
   @LoginAccount
   Scenario Outline: Login incorrect account, login and verify login not successfully
-    Given I navigate to Beecow and click button Login
     When I input data "<UserName>" to username
     And I input data "<PassWord>" to password
     And I click button Login
