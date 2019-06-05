@@ -53,10 +53,10 @@ public class LoginPage extends CommonFunction {
 		input(LoginPageUI.MATKHAU_DANGNHAP_TXT, value);
 	}
 
-	public HomePage clickbuttonDangnhap() {
+	public LoginPage clickbuttonDangnhap() {
 		waitVisible(LoginPageUI.DANGNHAP_LOGIN_BTN);
 		click(LoginPageUI.DANGNHAP_LOGIN_BTN);
-		return PageFactory.initElements(driver, HomePage.class);
+		return PageFactory.initElements(driver, LoginPage.class);
 
 	}
 

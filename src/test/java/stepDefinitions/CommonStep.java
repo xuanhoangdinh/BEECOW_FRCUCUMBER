@@ -29,6 +29,12 @@ public class CommonStep extends CommonTestCase {
 		verifyTrue(commonPage.isDynamicTexDisplayed(message));
 	}
 
+	@Then("^Verify successfully with Message \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void verify_successfully_with_Message_and(String Message1, String Message2) {
+		verifyTrue(commonPage.isDynamicTexDisplayed(Message1));
+		verifyTrue(commonPage.isDynamicTexDisplayed(Message2));
+	}
+
 	@Then("Quit browser$")
 	public void close_Browser() {
 		CommonTestCase.closeBrowser();

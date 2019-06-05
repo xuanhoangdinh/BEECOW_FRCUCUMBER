@@ -5,26 +5,34 @@ import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 
 public class CommonTestCase {
-    public static WebDriver driver;
+	public static WebDriver driver;
 
 	public static WebDriver openBrowser() {
-//		String browser = System.getProperty("BROWSER");
-//		String version = System.getProperty("VERSION");
-//		String url = System.getProperty("URL");
-//		String browser = "chrome";
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-notifications");
 		String version = "2.46";
 		String url = "https://www.beecow.com";
 		ChromeDriverManager.getInstance().version(version).setup();
-		driver = new ChromeDriver();
+		driver = new ChromeDriver(options);
 		driver.get(url);
 		driver.manage().window().maximize();
 		return driver;
 	}
+
+//		String version = "2.46";
+//		String url = "https://www.beecow.com";
+//		ChromeDriverManager.getInstance().version(version).setup();
+//		driver = new ChromeDriver();
+//		driver.get(url);
+//		driver.manage().window().maximize();
+//		return driver;
+//	}
 
 	public static void closeBrowser() {
 		driver.quit();
