@@ -6,8 +6,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/java/features/Feature_01_LogIn.feature", monochrome = true, glue = { "stepDefinitions" }, tags = {
-		"@LogInBeecow" })
+@CucumberOptions(features = "src/test/java/features", monochrome = true, glue = { "stepDefinitions" })
 
 public class RunCucumber {
 

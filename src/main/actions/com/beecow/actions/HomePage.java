@@ -19,11 +19,15 @@ public class HomePage extends CommonFunction {
 		return PageFactory.initElements(driver, LoginPage.class);
 	}
 
+	public LoginPage openBeecow(String url) {
+		openUrl(url);
+		return PageFactory.initElements(driver, LoginPage.class);
+	}
+
 	public CreateProductPage clickSellerPage() {
 		waitVisible(HomePageUI.SELLER_LINK);
 		clickByJs(HomePageUI.SELLER_LINK);
 		return PageFactory.initElements(driver, CreateProductPage.class);
 	}
-	
 
 }
