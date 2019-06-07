@@ -35,9 +35,15 @@ public class CommonStep extends CommonTestCase {
 		verifyTrue(commonPage.isDynamicTexDisplayed(Message2));
 	}
 
-	@Then("^Verify successfully with  Username \"([^\"]*)\"$")
-	public void verify_successfully_with_Username(String user) {
-		verifyTrue(commonPage.isDynamicTexDisplayedLBL(user));
+//	@Then("^Verify successfully with  Username \"([^\"]*)\"$")
+//	public void verify_successfully_with_Username(String user) {
+//		verifyTrue(commonPage.isDynamicTexDisplayedLBL(user));
+//	}
+
+	@Then("^Verify label username \"([^\"]*)\" is displayed on the top right screen$")
+	public void verify_label_username_is_displayed_on_the_top_right_screen(String genymotionios) {
+		verifyTrue(commonPage.isDynamicTexDisplayedLBL(genymotionios));
+
 	}
 
 	@Then("Quit browser$")

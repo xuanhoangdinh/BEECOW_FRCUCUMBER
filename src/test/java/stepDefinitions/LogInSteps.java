@@ -42,4 +42,14 @@ public class LogInSteps extends CommonTestCase {
 		loginPage.clickbuttonDangnhap();
 	}
 
+	@Given("^I enter correct email  to username$")
+	public void i_enter_correct_email_to_username() {
+		loginPage.inputEmailorSdt("genymotionios@gmail.com");
+	}
+
+	@When("^I enter correct password to password$")
+	public void i_enter_correct_password_to_password() {
+		loginPage.iputMatkhau("1234@abcd");
+	}
+
 }

@@ -13,7 +13,6 @@ Feature: Login page
     And I input data "<PassWord>" to password
     And I click button Login
     Then Verify successfully with Message "<Message1>" and "<Message2>"
-   
 
     Examples: 
       | UserName                | PassWord | Message1                                   | Message2                                   |
@@ -25,12 +24,8 @@ Feature: Login page
       | genymotionios@gmail.com |   123456 |                                            | Sai email / số điện thoại hoặc mật khẩu    |
 
   @LoginCorrectAccount
-  Scenario Outline: Login correct account, login and verify login successfully
-    When I input data "<UserName>" to username
-    And I input data "<PassWord>" to password
-    And I click button Login
-    Then Verify successfully with  Username "<UsernameDisplay>"
-
-    Examples: 
-      | UserName                | PassWord  | UsernameDisplay |
-      | genymotionios@gmail.com | 1234@abcd | genymotionios   |
+  Scenario: Login correct account, login and verify login successfully
+    Given I enter correct email  to username
+    When I enter correct password to password
+    When I click button Login
+    Then Verify label username "genymotionios" is displayed on the top right screen
