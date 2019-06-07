@@ -1,15 +1,12 @@
 @CreatProduct
-Feature: Login page
+Feature: CreatProduct
     As an automation tester
-  I want to login with account
+  I want to creat product and edit all filed produc 
   So that I want to verify all fields is correct message
 
-  Background: User to navigate to Login page
-    Given I navigate to Beecow "https://www.beecow.com"
+  Background: User creat product
+    Given At Home Page click label "Kênh bán hàng" And Click label: "Đăng sản phẩm mới"
 
-  @LoginCorrectAccount
-  Scenario Outline: Login correct account, login and verify login successfully
-    Given I enter "<UserName>" to username
-    When I enter "<PassWord>" to password
-    When I click button Login
-    Then Verify successfully with username "<genymotionios>"
+  @TC_008VerifyCurrentUrl
+  Scenario: Verify Current Url
+    Then Verify current url is "https://www.beecow.com/page/upload-product"
