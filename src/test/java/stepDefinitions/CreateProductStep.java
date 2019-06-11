@@ -18,6 +18,9 @@ public class CreateProductStep extends CommonTestCase {
 	HomePage homePage;
 	LoginPage loginPage;
 	CreateProductPage createProductPage;
+	String userPath = System.getProperty("user.dir");
+	String pathImage = userPath.concat("\\image\\2019259.jpg"),
+	locatorDataImage=pathImage;
 
 	public CreateProductStep() {
 		driver = CommonTestCase.driver;
@@ -29,9 +32,14 @@ public class CreateProductStep extends CommonTestCase {
 		createProductPage.clickClosePopupView();
 	}
 
-	@When("^I do not enter all field and I click button Post$")
-	public void i_do_not_enter_all_field_and_I_click_button_Post() {
+	@When("^I click button Post$")
+	public void i_click_button_Post() {
 		createProductPage.clickPost();
-
 	}
+
+	@When("^I upload fields Image Succefully$")
+	public void i_upload_fields_Image_Succefully() {
+		createProductPage.uploadIMG(locatorDataImage);
+	}
+
 }
