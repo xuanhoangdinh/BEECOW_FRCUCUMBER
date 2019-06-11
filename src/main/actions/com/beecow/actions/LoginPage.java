@@ -10,13 +10,14 @@ import commons.CommonFunction;
 
 public class LoginPage extends CommonFunction {
 
-    public LoginPage(WebDriver driver) {
+	public LoginPage(WebDriver driver) {
 		super(driver);
 	}
-    public void clearByJs(String value)
-	{
+
+	public void clearByJs(String value) {
 		executeScriptBrowser(value);
 	}
+
 	public LoginPage clickdangnhap() {
 		waitVisible(HomePageUI.DANGNHAP_TXT);
 		click(HomePageUI.DANGNHAP_TXT);
@@ -29,13 +30,11 @@ public class LoginPage extends CommonFunction {
 //		
 //	}
 
-
 	public void clearEmailorSdt() {
 		waitVisible(LoginPageUI.MOBILEOREMAIL_DANGNHAP_TXT);
 		clear(LoginPageUI.MOBILEOREMAIL_DANGNHAP_TXT);
 
 	}
-	
 
 	public void inputEmailorSdt(String value) {
 		waitVisible(LoginPageUI.MOBILEOREMAIL_DANGNHAP_TXT);
@@ -64,10 +63,14 @@ public class LoginPage extends CommonFunction {
 		waitVisibleDynamicElement(LoginPageUI.DYNAMIC_MSG, value);
 		return getTextDynamicElement(LoginPageUI.DYNAMIC_MSG, value);
 	}
-	public String getTextUserName(){
+
+	public String getTextUserName() {
 		waitVisible(LoginPageUI.USERNAME_LBL);
 		return getText(LoginPageUI.USERNAME_LBL);
 	}
-
-
+	public CreateProductPage clickSellerPage() {
+		waitVisible(HomePageUI.SELLER_LINK);
+		clickByJs(HomePageUI.SELLER_LINK);
+		return PageFactory.initElements(driver, CreateProductPage.class);
+	}
 }

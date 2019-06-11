@@ -9,21 +9,19 @@ import com.beecow.actions.LoginPage;
 
 import commons.CommonTestCase;
 
-public class CreatProductStep extends CommonTestCase {
+public class CreateProductStep extends CommonTestCase {
 
 	WebDriver driver;
 	String username, password;
 	HomePage homePage;
 	LoginPage loginPage;
-	CreateProductPage creatProductPage;
-	static String customerId;
+	CreateProductPage createProductPage;
 
-	public CreatProductStep() {
+	public CreateProductStep() {
 		driver = CommonTestCase.driver;
-		creatProductPage = PageFactory.initElements(driver, CreateProductPage.class);
+		createProductPage = PageFactory.initElements(driver, CreateProductPage.class);
 	}
 
 	
 
-	
 }

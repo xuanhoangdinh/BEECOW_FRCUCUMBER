@@ -3,6 +3,7 @@ package stepDefinitions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import com.beecow.actions.CreateProductPage;
 import com.beecow.actions.HomePage;
 import com.beecow.actions.LoginPage;
 
@@ -14,6 +15,7 @@ public class HomePageSteps extends CommonTestCase {
 	WebDriver driver;
 	LoginPage loginPage;
 	HomePage homePage;
+	CreateProductPage createProductPage;
 
 	public HomePageSteps() {
 		driver = CommonTestCase.openBrowser();
@@ -26,4 +28,5 @@ public class HomePageSteps extends CommonTestCase {
 		loginPage = homePage.clickdangnhap();
 	}
 
+	
 }

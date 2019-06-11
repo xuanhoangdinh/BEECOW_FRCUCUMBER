@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.beecow.actions.CommonPage;
 import com.beecow.actions.CreateProductPage;
 import com.beecow.actions.HomePage;
+import com.beecow.actions.LoginPage;
 
 import commons.CommonTestCase;
 import cucumber.api.java.en.Given;
@@ -17,6 +18,7 @@ public class CommonStep extends CommonTestCase {
 	CommonPage commonPage;
 	WebDriver driver;
 	HomePage homePage;
+	LoginPage loginPage;
 	CreateProductPage createProductPage;
 
 	public CommonStep() {
@@ -31,14 +33,9 @@ public class CommonStep extends CommonTestCase {
 	}
 
 	@Given("^At Home Page click label \"([^\"]*)\" And Click label: \"([^\"]*)\"$")
-	public void at_Home_Page_click_label_And_Click_label(String arg1, String arg2) {
+	public void at_Home_Page_click_label_And_Click_label() {
 		createProductPage = homePage.clickSellerPage();
 		driver.get("https://www.beecow.com/page/upload-product");
-	}
-
-	@Given("^Click label: \"([^\"]*)\"$")
-	public void click_label(String arg1) {
-
 	}
 
 	@Then("Verify successfully with message \"(.*?)\"$")
@@ -49,8 +46,15 @@ public class CommonStep extends CommonTestCase {
 
 	@Then("^Verify successfully with Message \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void verify_successfully_with_Message_and(String Message1, String Message2) {
-		verifyTrue(commonPage.isDynamicTexDisplayed(Message1));
-		verifyTrue(commonPage.isDynamicTexDisplayed(Message2));
+		checkDisplayedMsg(Message1);
+		checkDisplayedMsg(Message2);
+	}
+
+	public void checkDisplayedMsg(String Message) {
+		if (!(Message.isEmpty())) {
+			verifyTrue(commonPage.isDynamicTexDisplayed(Message));
+		}
+
 	}
 
 	@Then("^Verify label username \"([^\"]*)\" is displayed on the top right screen$")
@@ -60,7 +64,7 @@ public class CommonStep extends CommonTestCase {
 	}
 
 	@Then("^Verify current url is \"([^\"]*)\"$")
-	public void verify_current_url_is(String arg1) {
+	public void verify_current_url_is() {
 		String currrentUrl = driver.getCurrentUrl();
 		assertEquals(currrentUrl, "https://www.beecow.com/page/upload-product");
 
