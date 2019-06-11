@@ -38,7 +38,10 @@ public class CreateProductPage extends CommonFunction {
 		waitVisible(CreateProductPageUI.POST_PRODUCT_BTN);
 		click(CreateProductPageUI.POST_PRODUCT_BTN);
 	}
-
+	public void clickClosePopupView() {
+		waitVisible(CreateProductPageUI.POPUP_VIEW);
+		click(CreateProductPageUI.POPUP_VIEW);
+	}
 	// dynamic text
 	public String getDynamicText(String value) {
 		waitVisibleDynamicElement(LoginPageUI.DYNAMIC_MSG, value);

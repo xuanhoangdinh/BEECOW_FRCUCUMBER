@@ -1,6 +1,9 @@
 package com.beecow.ui;
 
 public class CreateProductPageUI {
+	//popup quảng cáo 
+	public static final String POPUP_VIEW = "//button[@class='close']/span";
+
     //dynamic  
 	public static final String DYNAMIC_MSG = "//*[contains(text(),'%s')]";
 	public static final String DYNAMIC_LENGTH_MSG = "//label[@beetranslate='beecow.item.error.shipping.length.require']/*[contains(text(),'%s')]";

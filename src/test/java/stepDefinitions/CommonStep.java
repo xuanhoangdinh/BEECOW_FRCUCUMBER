@@ -19,7 +19,7 @@ public class CommonStep extends CommonTestCase {
 	WebDriver driver;
 	HomePage homePage;
 	LoginPage loginPage;
-	CreateProductPage creatProductPage;
+	CreateProductPage createProductPage;
 
 	public CommonStep() {
 		driver = CommonTestCase.driver;
@@ -51,6 +51,29 @@ public class CommonStep extends CommonTestCase {
 
 	}
 
+	@Then("^Verify successfully all message \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\"and \"([^\"]*)\"$")
+	public void verify_successfully_all_message_and_and_and_and_and_and_and_and_and(String Message1, String Message2,
+			String Message3, String Message4, String Message5, String Message6, String Message7, String Message8,
+			String Message9, String Message10) {
+		checkDisplayedAllMsg(Message1);
+		checkDisplayedAllMsg(Message2);
+		checkDisplayedAllMsg(Message3);
+		checkDisplayedAllMsg(Message4);
+		checkDisplayedAllMsg(Message5);
+		checkDisplayedAllMsg(Message6);
+		checkDisplayedAllMsg(Message7);
+		checkDisplayedAllMsg(Message8);
+		checkDisplayedAllMsg(Message9);
+		checkDisplayedAllMsg(Message10);
+	}
+
+	public void checkDisplayedAllMsg(String message) {
+		if (!(message.isEmpty())) {
+			verifyTrue(commonPage.isDynamicTexDisplayed(message));
+		}
+
+	}
+
 	@Then("^Verify label username \"([^\"]*)\" is displayed on the top right screen$")
 	public void verify_label_username_is_displayed_on_the_top_right_screen(String genymotionios) {
 		verifyTrue(commonPage.isDynamicTexDisplayedLBL(genymotionios));
@@ -66,7 +89,8 @@ public class CommonStep extends CommonTestCase {
 //create product
 	@Given("^Navigate to Upload Product Page$")
 	public void navigate_to_Upload_Product_Page() {
-		driver.get("https://www.beecow.com/page/upload-product");
+		driver.navigate().to("https://www.beecow.com/page/upload-product");
+
 	}
 
 	@Then("Quit browser$")
