@@ -29,3 +29,4 @@ Feature: Login page
     When I enter correct password to password
     When I click button Login
     Then Verify label username "genymotionios" is displayed on the top right screen
+    Then At Home Page click seller page

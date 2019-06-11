@@ -19,7 +19,7 @@ public class CommonStep extends CommonTestCase {
 	WebDriver driver;
 	HomePage homePage;
 	LoginPage loginPage;
-	CreateProductPage createProductPage;
+	CreateProductPage creatProductPage;
 
 	public CommonStep() {
 		driver = CommonTestCase.driver;
@@ -30,12 +30,6 @@ public class CommonStep extends CommonTestCase {
 	public void i_open_page(String url) {
 		commonPage.openDynamicPage(url);
 
-	}
-
-	@Given("^At Home Page click label \"([^\"]*)\" And Click label: \"([^\"]*)\"$")
-	public void at_Home_Page_click_label_And_Click_label() {
-		createProductPage = homePage.clickSellerPage();
-		driver.get("https://www.beecow.com/page/upload-product");
 	}
 
 	@Then("Verify successfully with message \"(.*?)\"$")
@@ -63,11 +57,16 @@ public class CommonStep extends CommonTestCase {
 
 	}
 
-	@Then("^Verify current url is \"([^\"]*)\"$")
-	public void verify_current_url_is() {
+	@Then("^Verify current url \"([^\"]*)\"$")
+	public void verify_current_url(String arg1) {
 		String currrentUrl = driver.getCurrentUrl();
 		assertEquals(currrentUrl, "https://www.beecow.com/page/upload-product");
+	}
 
+//create product
+	@Given("^Navigate to Upload Product Page$")
+	public void navigate_to_Upload_Product_Page() {
+		driver.get("https://www.beecow.com/page/upload-product");
 	}
 
 	@Then("Quit browser$")

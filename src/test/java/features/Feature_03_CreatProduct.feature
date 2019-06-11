@@ -5,8 +5,8 @@ Feature: CreatProduct
   So that I want to verify all fields is correct message
 
   Background: User creat product
-    Given At Home Page click label "Kênh bán hàng" And Click label: "Đăng sản phẩm mới"
+    Given  Navigate to Upload Product Page
 
   @TC_008VerifyCurrentUrl
   Scenario: Verify Current Url
-    Then Verify current url is "https://www.beecow.com/page/upload-product"
+    Then Verify current url "https://www.beecow.com/page/upload-product"

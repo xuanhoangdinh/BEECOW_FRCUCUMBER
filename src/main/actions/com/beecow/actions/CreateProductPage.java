@@ -171,6 +171,11 @@ public class CreateProductPage extends CommonFunction {
 	}
 
 //Button
+	public CreateProductPage clickSellerPage() {
+		waitVisible(HomePageUI.SELLER_LINK);
+		clickByJs(HomePageUI.SELLER_LINK);
+		return PageFactory.initElements(driver, CreateProductPage.class);
+	}
 	public void clickPost() {
 		waitVisible(CreateProductPageUI.POST_BTN);
 		click(CreateProductPageUI.POST_BTN);

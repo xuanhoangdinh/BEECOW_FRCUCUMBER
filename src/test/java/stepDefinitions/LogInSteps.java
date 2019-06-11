@@ -3,11 +3,13 @@ package stepDefinitions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import com.beecow.actions.CreateProductPage;
 import com.beecow.actions.HomePage;
 import com.beecow.actions.LoginPage;
 
 import commons.CommonTestCase;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class LogInSteps extends CommonTestCase {
@@ -15,6 +17,7 @@ public class LogInSteps extends CommonTestCase {
 	WebDriver driver;
 	LoginPage loginPage;
 	HomePage homePage;
+	CreateProductPage createProductPage;
 
 	public LogInSteps() {
 		driver = CommonTestCase.driver;
@@ -52,4 +55,8 @@ public class LogInSteps extends CommonTestCase {
 		loginPage.iputMatkhau("1234@abcd");
 	}
 
+	@Then("^At Home Page click seller page$")
+	public void at_Home_Page_click_seller_page() {
+		createProductPage = loginPage.clickSellerPage();
+	}
 }
