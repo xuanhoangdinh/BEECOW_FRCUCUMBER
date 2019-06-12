@@ -44,6 +44,12 @@ public class CommonTestCase {
 		return ExtentEmail.toString();
 	}
 
+	public String randomName() {
+		Random rand = new Random();
+		int n = rand.nextInt(9999999);
+		return String.valueOf(n);
+	}
+
 	public static String randomEmail() {
 		Random rand = new Random();
 		int n = rand.nextInt(9999999);

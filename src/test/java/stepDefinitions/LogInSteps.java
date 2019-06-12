@@ -55,8 +55,16 @@ public class LogInSteps extends CommonTestCase {
 		loginPage.iputMatkhau("1234@abcd");
 	}
 
+//	@Then("^Verify current url \"([^\"]*)\"$")
+//	public void verify_current_url(String url) {
+//		loginPage.verifyCurrentUrlUploadProductPage(url);
+//	}
+
+
+
 	@Then("^At Home Page click seller page$")
-	public void at_Home_Page_click_seller_page() {
+	public void at_Home_Page_click_seller_page() throws InterruptedException {
 		createProductPage = loginPage.clickSellerPage();
+		Thread.sleep(3000);
 	}
 }

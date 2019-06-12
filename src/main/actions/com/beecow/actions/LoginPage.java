@@ -1,5 +1,7 @@
 package com.beecow.actions;
 
+import static org.testng.Assert.assertEquals;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -68,9 +70,17 @@ public class LoginPage extends CommonFunction {
 		waitVisible(LoginPageUI.USERNAME_LBL);
 		return getText(LoginPageUI.USERNAME_LBL);
 	}
+
 	public CreateProductPage clickSellerPage() {
 		waitVisible(HomePageUI.SELLER_LINK);
 		clickByJs(HomePageUI.SELLER_LINK);
 		return PageFactory.initElements(driver, CreateProductPage.class);
 	}
+
+	
+
+//	public void verifyCurrentUrlUploadProductPage(String arg1) {
+//		String currrentUrl = driver.getCurrentUrl();
+//		assertEquals(currrentUrl, "https://www.beecow.com/page/upload-product");
+//	}
 }

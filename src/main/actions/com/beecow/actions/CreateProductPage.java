@@ -1,5 +1,7 @@
 package com.beecow.actions;
 
+import static org.testng.Assert.assertEquals;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -38,10 +40,12 @@ public class CreateProductPage extends CommonFunction {
 		waitVisible(CreateProductPageUI.POST_PRODUCT_BTN);
 		click(CreateProductPageUI.POST_PRODUCT_BTN);
 	}
+
 	public void clickClosePopupView() {
 		waitVisible(CreateProductPageUI.POPUP_VIEW);
 		click(CreateProductPageUI.POPUP_VIEW);
 	}
+
 	// dynamic text
 	public String getDynamicText(String value) {
 		waitVisibleDynamicElement(LoginPageUI.DYNAMIC_MSG, value);
@@ -179,6 +183,7 @@ public class CreateProductPage extends CommonFunction {
 		clickByJs(HomePageUI.SELLER_LINK);
 		return PageFactory.initElements(driver, CreateProductPage.class);
 	}
+
 	public void clickPost() {
 		waitVisible(CreateProductPageUI.POST_BTN);
 		click(CreateProductPageUI.POST_BTN);
@@ -339,6 +344,18 @@ public class CreateProductPage extends CommonFunction {
 		waitVisible(CreateProductPageUI.WEIGHT_EDIT);
 		return getText(CreateProductPageUI.WEIGHT_EDIT);
 	}
+
+	public void navigateToUploadProductPage() {
+		driver.navigate().to("https://www.beecow.com/page/upload-product");
+
+	}
+
+	public void verifyCurrentUrlUploadProductPage(String arg1) {
+		String currrentUrl = driver.getCurrentUrl();
+		assertEquals(currrentUrl, "https://www.beecow.com/page/upload-product");
+	}
+
+	
 
 //	public String gettextDetailSoldout() {
 //		waitVisible(CreateProductPageUI.DETAIL_SOLDOUT);

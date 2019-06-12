@@ -30,3 +30,68 @@ Feature: CreatProduct
     Examples: 
       | Product name | Combobox category | Decription | Quantity | Price | Weight | Width | Length | Height | Message1 | Message2              | Message3           | Message4            | Message5       | Message6      | Message7                    | Message8 | Message9 | Message10 |
       |              |                   |            |          |       |        |       |        |        |          | Hãy điền tên sản phẩm | Hãy chọn danh mục. | Hãy mô tả sản phẩm. | Nhập số lượng. | Hãy điền giá. | Hãy điền cân nặng sản phẩm. | Bắt buộc | Bắt buộc | Bắt buộc  |
+
+  @TC_011_UploadImageAndInputRandomProductName
+  Scenario Outline: Upload fields Image Succefully And Input Random Product Name
+    When I upload fields Image Succefully
+    And I input random Product Name
+    And I click button Post
+    Then Verify successfully all message "<Message1>" and "<Message2>" and "<Message3>" and "<Message4>" and "<Message5>" and "<Message6>" and "<Message7>" and "<Message8>" and "<Message9>"and "<Message10>"
+
+    Examples: 
+      | Combobox category | Decription | Quantity | Price | Weight | Width | Length | Height | Message1 | Message2 | Message3           | Message4            | Message5       | Message6      | Message7                    | Message8 | Message9 | Message10 |
+      |                   |            |          |       |        |       |        |        |          |          | Hãy chọn danh mục. | Hãy mô tả sản phẩm. | Nhập số lượng. | Hãy điền giá. | Hãy điền cân nặng sản phẩm. | Bắt buộc | Bắt buộc | Bắt buộc  |
+
+  @TC_012_UploadImageAndInputRandomProductNameRandomCombobox1
+  Scenario Outline: Upload image and input random product name random combobox1
+    When I upload fields Image Succefully
+    And I input random Product Name
+    And I Select random combobox Chọn danh mục so 1
+    And I click button Post
+    Then Verify successfully all message "<Message1>" and "<Message2>" and "<Message3>" and "<Message4>" and "<Message5>" and "<Message6>" and "<Message7>" and "<Message8>" and "<Message9>"and "<Message10>"
+
+    Examples: 
+      | Combobox category | Decription | Quantity | Price | Weight | Width | Length | Height | Message1 | Message2 | Message3           | Message4            | Message5       | Message6      | Message7                    | Message8 | Message9 | Message10 |
+      |                   |            |          |       |        |       |        |        |          |          | Hãy chọn danh mục. | Hãy mô tả sản phẩm. | Nhập số lượng. | Hãy điền giá. | Hãy điền cân nặng sản phẩm. | Bắt buộc | Bắt buộc | Bắt buộc  |
+
+  @TC_013_UploadImageAndInputRandomProductNameRandomCombobox1and2
+  Scenario Outline: Upload image and input random product name random combobox1 and combobox2
+    When I upload fields Image Succefully
+    And I input random Product Name
+    And I Select random combobox Chọn danh mục so 1
+    And I Select random combobox Chọn danh mục thu 2
+    And I click button Post
+    Then Verify successfully all message "<Message1>" and "<Message2>" and "<Message3>" and "<Message4>" and "<Message5>" and "<Message6>" and "<Message7>" and "<Message8>" and "<Message9>"and "<Message10>"
+
+    Examples: 
+      | Combobox category | Decription | Quantity | Price | Weight | Width | Length | Height | Message1 | Message2 | Message3 | Message4            | Message5       | Message6      | Message7                    | Message8 | Message9 | Message10 |
+      |                   |            |          |       |        |       |        |        |          |          |          | Hãy mô tả sản phẩm. | Nhập số lượng. | Hãy điền giá. | Hãy điền cân nặng sản phẩm. | Bắt buộc | Bắt buộc | Bắt buộc  |
+
+  @TC_014_PostWithInputFieldValidToDescription
+  Scenario Outline: Post with input field valid to description
+    When I upload fields Image Succefully
+    And I input random Product Name
+    And I Select random combobox Chọn danh mục so 1
+    And I Select random combobox Chọn danh mục thu 2
+    And I input data "<Decription>" to decription
+    And I click button Post
+    Then Verify successfully all message "<Message1>" and "<Message2>" and "<Message3>" and "<Message4>" and "<Message5>" and "<Message6>" and "<Message7>" and "<Message8>" and "<Message9>"and "<Message10>"
+
+    Examples: 
+      | Decription          | Quantity | Price | Weight | Width | Length | Height | Message1 | Message2 | Message3 | Message4 | Message5       | Message6      | Message7                    | Message8 | Message9 | Message10 |
+      | Description product |          |       |        |       |        |        |          |          |          |          | Nhập số lượng. | Hãy điền giá. | Hãy điền cân nặng sản phẩm. | Bắt buộc | Bắt buộc | Bắt buộc  |
+
+  @TC_015_PostWithInputValidFieldToQuantity
+  Scenario Outline: Upload fields Image Succefully and Input Random Product Name and RandomCombobox
+    When I upload fields Image Succefully
+    And I input random Product Name
+    And I Select random combobox Chọn danh mục so 1
+    And I Select random combobox Chọn danh mục thu 2
+    And I input data "<Decription>" to decription
+    And Input Quantity: "10"
+    And I click button Post
+    Then Verify successfully all message "<Message1>" and "<Message2>" and "<Message3>" and "<Message4>" and "<Message5>" and "<Message6>" and "<Message7>" and "<Message8>" and "<Message9>"and "<Message10>"
+
+    Examples: 
+      | Decription          | Quantity | Price | Weight | Width | Length | Height | Message1 | Message2 | Message3 | Message4 | Message5 | Message6      | Message7                    | Message8 | Message9 | Message10 |
+      | Description product |       10 |       |        |       |        |        |          |          |          |          |          | Hãy điền giá. | Hãy điền cân nặng sản phẩm. | Bắt buộc | Bắt buộc | Bắt buộc  |

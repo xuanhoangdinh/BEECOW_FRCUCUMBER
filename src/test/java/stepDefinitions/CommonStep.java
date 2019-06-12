@@ -80,18 +80,7 @@ public class CommonStep extends CommonTestCase {
 
 	}
 
-	@Then("^Verify current url \"([^\"]*)\"$")
-	public void verify_current_url(String arg1) {
-		String currrentUrl = driver.getCurrentUrl();
-		assertEquals(currrentUrl, "https://www.beecow.com/page/upload-product");
-	}
-
-//create product
-	@Given("^Navigate to Upload Product Page$")
-	public void navigate_to_Upload_Product_Page() {
-		driver.navigate().to("https://www.beecow.com/page/upload-product");
-
-	}
+	
 
 	@Then("Quit browser$")
 	public void close_Browser() {
