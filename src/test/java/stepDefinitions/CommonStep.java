@@ -1,7 +1,5 @@
 package stepDefinitions;
 
-import static org.testng.Assert.assertEquals;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -67,6 +65,21 @@ public class CommonStep extends CommonTestCase {
 		checkDisplayedAllMsg(Message10);
 	}
 
+//	@Then("^Verify successfully all message \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\"and \"([^\"]*)\"$")
+//	public void verify_successfully_all_message_and_and_and_and_and_and_and_and(String Message1, String Message2,
+//			String Message4, String Message5, String Message6, String Message7, String Message8, String Message9,
+//			String Message10) {
+//		checkDisplayedAllMsg(Message1);
+//		checkDisplayedAllMsg(Message2);
+//		checkDisplayedAllMsg(Message4);
+//		checkDisplayedAllMsg(Message5);
+//		checkDisplayedAllMsg(Message6);
+//		checkDisplayedAllMsg(Message7);
+//		checkDisplayedAllMsg(Message8);
+//		checkDisplayedAllMsg(Message9);
+//		checkDisplayedAllMsg(Message10);
+//	}
+
 	public void checkDisplayedAllMsg(String message) {
 		if (!(message.isEmpty())) {
 			verifyTrue(commonPage.isDynamicTexDisplayed(message));
@@ -79,8 +92,6 @@ public class CommonStep extends CommonTestCase {
 		verifyTrue(commonPage.isDynamicTexDisplayedLBL(genymotionios));
 
 	}
-
-	
 
 	@Then("Quit browser$")
 	public void close_Browser() {

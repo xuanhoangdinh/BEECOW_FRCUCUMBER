@@ -15,13 +15,14 @@ import cucumber.api.java.en.When;
 public class CreateProductStep extends CommonTestCase {
 
 	WebDriver driver;
-	String username, password;
+	String username, password, productName;
 	HomePage homePage;
 	LoginPage loginPage;
 	CreateProductPage createProductPage;
 	String userPath = System.getProperty("user.dir");
-	String pathImage = userPath.concat("\\image\\2019259.jpg"), locatorDataImage = pathImage;
-	String productName = "XuanHoang" + randomName();
+	String pathImage = userPath.concat("\\image\\");
+//	String pathImage = userPath.concat("\\image\\2019259.jpg"), locatorDataImage = pathImage;
+//	String productName = "XuanHoang" + randomName();
 
 	public CreateProductStep() {
 		driver = CommonTestCase.driver;
@@ -39,8 +40,8 @@ public class CreateProductStep extends CommonTestCase {
 	}
 
 	@When("^I upload fields Image Succefully$")
-	public void i_upload_fields_Image_Succefully() {
-		createProductPage.uploadIMG(locatorDataImage);
+	public void i_upload_fields_Image_Succefully(String img) {
+		createProductPage.uploadIMG(img);
 	}
 
 	// create product
@@ -54,15 +55,25 @@ public class CreateProductStep extends CommonTestCase {
 		createProductPage.verifyCurrentUrlUploadProductPage(url);
 	}
 
-	@When("^I input random Product Name$")
-	public void i_input_random_Product_Name() {
-		createProductPage.inputNameProduct(productName);
+	@When("^I Input \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void i_Input_and_and_and_and_and_and_and_and(String image, String productName, String decription, String quantity,
+			String arg5, String arg6, String arg7, String arg8, String arg9) {
+		createProductPage.uploadIMG(pathImage + image);
+		createProductPage.inputNameProduct(productName + randomName());
+		createProductPage.inputDescription(decription);
+		createProductPage.inputQuantity(quantity);
 	}
+
+//	@When("^I input random Product Name$")
+//	public void i_input_random_Product_Name() {
+//		createProductPage.inputNameProduct(productName + randomName());
+//	}
 
 	@When("^I Select random combobox Chọn danh mục so (\\d+)$")
 	public void i_Select_random_combobox_Chọn_danh_mục_so(int arg1) {
 		createProductPage.clickCate1();
 		createProductPage.clickRandomValueCate1();
+		
 	}
 
 	@When("^I Select random combobox Chọn danh mục thu (\\d+)$")
@@ -72,14 +83,14 @@ public class CreateProductStep extends CommonTestCase {
 		createProductPage.clickRandomCat3();
 	}
 
-	@When("^I input data \"([^\"]*)\" to decription$")
-	public void i_input_data_to_decription(String value) {
-		createProductPage.inputDescription(value);
-	}
+//	@When("^I input data \"([^\"]*)\" to decription$")
+//	public void i_input_data_to_decription(String value) {
+//		createProductPage.inputDescription(value);
+//	}
 
-	@When("^Input Quantity: \"([^\"]*)\"$")
-	public void input_Quantity(String value)  {
-		createProductPage.inputQuantity(value);
-	}
+//	@When("^Input Quantity: \"([^\"]*)\"$")
+//	public void input_Quantity(String value) {
+//		createProductPage.inputQuantity(value);
+//	}
 
 }
